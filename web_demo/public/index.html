@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="RoadGuard prototype: automatically screen road images for visible potholes." />
+  <title>RoadGuard | AI Pothole Detection</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="RoadGuard home">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span>Road<span>Guard</span></span>
+      </a>
+      <div class="topbar-meta"><span class="status-dot"></span> Prototype workspace <span class="divider"></span> Linux / Jupyter workflow</div>
+    </header>
+
+    <main id="top">
+      <section class="hero section-grid">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="eyebrow-line"></span> AI-ASSISTED ROAD INSPECTION</p>
+          <h1>See the road.<br /><em>Spot the risk.</em></h1>
+          <p class="hero-text">RoadGuard automatically screens road images for visible potholes and turns an unstructured frame into a clear, reviewable detection output.</p>
+          <div class="hero-actions">
+            <button id="detectButton" class="primary-button" type="button"><span class="button-icon">✦</span> Detect pothole</button>
+            <a class="text-link" href="#how-it-works">How it works <span>↓</span></a>
+          </div>
+          <div class="hero-note"><span class="note-icon">i</span><span>This is a prototype review output. A human inspector remains in control.</span></div>
+        </div>
+        <div class="hero-aside">
+          <div class="signal-card loop-card">
+            <div class="signal-top"><span>LIVE DETECTION LOOP</span><span class="signal-pulse"><i></i> AUTO PLAY</span></div>
+            <div class="loop-video-wrap">
+              <video class="loop-video" autoplay muted loop playsinline preload="auto" aria-label="RoadGuard automatically scanning a pothole and marking the detected road region">
+                <source src="/pothole-loop.mp4" type="video/mp4" />
+              </video>
+              <div class="loop-caption"><span>REAL ROAD IMAGE</span><span>AI MARKING OUTPUT</span></div>
+            </div>
+            <div class="signal-bottom"><span>INPUT</span><strong>Road image</strong><span>OUTPUT</span><strong>Pothole marked</strong></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="demo-section" id="demo">
+        <div class="section-heading">
+          <div><p class="eyebrow"><span class="eyebrow-line"></span> PROJECT OUTPUT</p><h2>From road image to<br /><span>detected pothole.</span></h2></div>
+          <div class="section-heading-copy"><p>Press the button and watch the RoadGuard prototype analyze a real road-damage image. The green box is the output a reviewer would inspect.</p><div class="mini-legend"><span class="legend-input"></span> input <span class="legend-output"></span> detected region</div></div>
+        </div>
+
+        <div class="demo-stage">
+          <div class="image-panel input-panel">
+            <div class="panel-header"><span class="panel-kicker"><b class="step-number">01</b> INPUT FRAME</span><span class="panel-state neutral" id="inputState">Waiting</span></div>
+            <div class="image-wrap">
+              <img src="/pothole.jpg" alt="Real road surface with a visible pothole" />
+              <div class="image-vignette"></div>
+              <div class="corner-mark mark-tl"></div><div class="corner-mark mark-br"></div>
+              <div class="image-tag">ROAD IMAGE / FRAME 001</div>
+            </div>
+            <p class="panel-caption">A real road image enters the inspection workflow.</p>
+          </div>
+
+          <div class="flow-connector"><div class="connector-line"><span id="connectorProgress"></span></div><div class="connector-node">→</div><span class="connector-label" id="connectorLabel">ready to scan</span></div>
+
+          <div class="image-panel output-panel" id="outputPanel">
+            <div class="panel-header"><span class="panel-kicker"><b class="step-number output-step">02</b> AI OUTPUT</span><span class="panel-state" id="outputState">Not analyzed</span></div>
+            <div class="image-wrap output-wrap">
+              <img src="/pothole.jpg" alt="Road image with a highlighted pothole detection region" />
+              <div class="scan-overlay" id="scanOverlay"><div class="scan-line"></div><div class="scan-copy"><span class="spinner"></span><strong id="scanText">Waiting for input</strong><small id="scanSubtext">Press Detect pothole to begin</small></div></div>
+              <div class="detection-box" id="detectionBox"><span class="box-label"><i></i> POTHOLE DETECTED</span><span class="box-corner c1"></span><span class="box-corner c2"></span><span class="box-corner c3"></span><span class="box-corner c4"></span></div>
+              <div class="review-badge" id="reviewBadge"><span class="badge-check">✓</span><div><strong>Review required</strong><small>Human verification next</small></div></div>
+              <div class="image-tag">OUTPUT / REVIEW VIEW</div>
+            </div>
+            <p class="panel-caption" id="outputCaption">The detector output will appear here.</p>
+          </div>
+        </div>
+
+        <div class="demo-status" aria-live="polite"><div class="status-main"><span class="status-icon" id="statusIcon">↗</span><div><strong id="statusTitle">Ready to demonstrate</strong><span id="statusText">RoadGuard is waiting for a road image to analyze.</span></div></div><div class="progress-wrap"><div class="progress-label"><span id="progressLabel">0%</span><span>ANALYSIS</span></div><div class="progress-track"><span id="progressBar"></span></div></div></div>
+      </section>
+
+      <section class="explain-section" id="how-it-works">
+        <div class="section-heading compact"><div><p class="eyebrow"><span class="eyebrow-line"></span> WHAT THE OUTPUT MEANS</p><h2>One image.<br /><span>One clear next step.</span></h2></div><p class="section-lead">The highlighted region is not a final repair decision. It is a focused signal that helps a person decide where to look next.</p></div>
+        <div class="explain-grid">
+          <article class="explain-card accent-card"><span class="card-number">01</span><div class="card-icon">⌁</div><h3>Detect</h3><p>The model scans the road image for visual patterns associated with a visible pothole.</p></article>
+          <article class="explain-card"><span class="card-number">02</span><div class="card-icon">□</div><h3>Review</h3><p>A bounding box makes the suspected region easy for an inspector to verify.</p></article>
+          <article class="explain-card"><span class="card-number">03</span><div class="card-icon">↗</div><h3>Prioritize</h3><p>Evidence can support a future maintenance queue or field-inspection plan.</p></article>
+        </div>
+      </section>
+
+      <section class="benefits-section">
+        <div class="benefits-intro"><p class="eyebrow"><span class="eyebrow-line"></span> WHY IT MATTERS</p><h2>Built for the people<br />who keep roads moving.</h2><p>RoadGuard turns repetitive image screening into a faster, more consistent review workflow.</p></div>
+        <div class="benefit-list">
+          <div class="benefit-row"><span class="benefit-index">01</span><div><h3>Faster screening</h3><p>Focus attention on frames that may contain visible road damage.</p></div><span class="benefit-arrow">↗</span></div>
+          <div class="benefit-row"><span class="benefit-index">02</span><div><h3>Clearer prioritization</h3><p>Use a visible detection region to guide the next inspection step.</p></div><span class="benefit-arrow">↗</span></div>
+          <div class="benefit-row"><span class="benefit-index">03</span><div><h3>Consistent evidence</h3><p>Save a repeatable visual result for maintenance discussions.</p></div><span class="benefit-arrow">↗</span></div>
+          <div class="benefit-row"><span class="benefit-index">04</span><div><h3>Ready to scale</h3><p>Extend the same workflow from notebook experiments to batch image review.</p></div><span class="benefit-arrow">↗</span></div>
+        </div>
+      </section>
+
+      <section class="cta-section"><div class="cta-glow"></div><div class="cta-content"><span class="cta-label">ROADGUARD PROTOTYPE</span><h2>Detect. Review.<br /><span>Prioritize.</span></h2><p>AI-assisted road-safety inspection for a more informed next step.</p><button id="runAgainButton" class="secondary-button" type="button">Run the detection again <span>↗</span></button></div><div class="cta-grid-mark" aria-hidden="true"></div></section>
+    </main>
+
+    <footer><div class="footer-brand">Road<span>Guard</span></div><p>Prototype review output · Human verification required · Linux / Jupyter-ready workflow</p><p>© 2026 RoadGuard</p></footer>
+  </div>
+  <script src="/app.js"></script>
+</body>
+</html>
