@@ -178,6 +178,3 @@ RoadGuard detects visible visual patterns; it does not measure pothole depth, st
 
 Review the current license terms for each dependency, dataset, and model before commercial or public-sector deployment.
 
-## Submission checklist
-
-Before submitting the project, replace the GitHub placeholder in the challenge form with the public repository URL, run the notebook at least once, record the actual validation metrics, show an annotated prediction in the demo video, upload `docs/pitch_deck.pdf`, and add the final public video link. Keep downloaded datasets and model weights out of the repository unless their terms explicitly permit redistribution.
