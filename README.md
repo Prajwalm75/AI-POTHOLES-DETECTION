@@ -24,7 +24,6 @@ ____________________________________________
 
 > **Project status:** reproducible prototype. The notebook trains a one-class YOLO detector for visible potholes; the included browser demo communicates the workflow with a real road image and a looping detection-output animation. A human inspector remains responsible for verification and maintenance decisions.
 
-**Live browser preview:** [Open RoadGuard](https://8328-i6tzmafojx0xprgptrmo4-bb398ad4.sg2.manus.computer/) *(preview availability depends on the active project session)*
 
 ## Project at a glance
 
@@ -169,21 +168,17 @@ RoadGuard detects visible visual patterns; it does not measure pothole depth, st
 
 ## Project documents
 
-- [Full project report](docs/PROJECT_REPORT.md)
 - [Project report PDF](docs/PROJECT_REPORT.pdf)
-- [Pitch deck PDF](docs/pitch_deck.pdf)
-- [Submission-form answers](docs/submission_form_answers.md)
 - [Dataset folder notes](data/README.md)
 
 ## Open-source resources and attribution
 
-1. [RDD2022 Road Damage Detector repository](https://github.com/sekilab/RoadDamageDetector)
-2. [RDD2022 Figshare record](https://figshare.com/articles/dataset/RDD2022_-_The_multi-national_Road_Damage_Dataset_released_through_CRDDC_2022/21431547)
-3. [Pothole-600 project page](https://sites.google.com/view/pothole-600/dataset)
-4. [Ultralytics Python usage](https://docs.ultralytics.com/usage/python/)
-5. [Ultralytics repository](https://github.com/ultralytics/ultralytics)
-6. [OpenCV](https://opencv.org/)
-7. [Jupyter](https://jupyter.org/)
+1. [RDD2022 Figshare record](https://figshare.com/articles/dataset/RDD2022_-_The_multi-national_Road_Damage_Dataset_released_through_CRDDC_2022/21431547)
+2. [Pothole-600 project page](https://sites.google.com/view/pothole-600/dataset)
+3. [Ultralytics Python usage](https://docs.ultralytics.com/usage/python/)
+4. [Ultralytics repository](https://github.com/ultralytics/ultralytics)
+5. [OpenCV](https://opencv.org/)
+6. [Jupyter](https://jupyter.org/)
 
 Review the current license terms for each dependency, dataset, and model before commercial or public-sector deployment.
 
