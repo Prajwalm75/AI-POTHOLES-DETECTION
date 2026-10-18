@@ -1,5 +1,7 @@
 # RoadGuard — AI Pothole Detection
 
+IBM Z DATHATHON 2026 | SSF2026 | TEAM OG GANG
+
 <p align="center">
   <img src="docs/screenshots/detection-loop-output.png" alt="RoadGuard pothole detection output" width="920" />
 </p>
@@ -12,6 +14,13 @@
   <a href="https://docs.ultralytics.com/"><img src="https://img.shields.io/badge/YOLO-Ultralytics-111827" alt="Ultralytics YOLO"></a>
   <a href="https://www.ibm.com/linuxone"><img src="https://img.shields.io/badge/LinuxONE-ready-052FAD?logo=linux&logoColor=white" alt="LinuxONE ready"></a>
 </p>
+
+TEAM OG GANG
+____________________________________________
+• PRAJWAL M
+• NIKIL GOWDA M
+• PRAJWAL GOWDA B S
+• KIRAN B A
 
 > **Project status:** reproducible prototype. The notebook trains a one-class YOLO detector for visible potholes; the included browser demo communicates the workflow with a real road image and a looping detection-output animation. A human inspector remains responsible for verification and maintenance decisions.
 
