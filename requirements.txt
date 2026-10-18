@@ -12,3 +12,4 @@ jupyterlab>=4.0.0
 ipykernel>=6.0.0
 fastapi
 uvicorn
+python-multipart
